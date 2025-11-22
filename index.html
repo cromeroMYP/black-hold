@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cosmos: Agujeros Negros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              space: {
+                900: '#0B0D17',
+                800: '#151932',
+                700: '#1F2544',
+              },
+              accent: {
+                light: '#D0BCFF',
+                DEFAULT: '#6F00FF',
+                dark: '#36007A',
+              },
+              star: '#FFFDF0'
+            },
+            animation: {
+              'spin-slow': 'spin 20s linear infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #000;
+        color: #fff;
+        overflow-x: hidden;
+      }
+      .stars {
+        background-image: radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+                          radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                          radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+                          radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+                          radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+                          radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+        background-repeat: repeat;
+        background-size: 200px 200px;
+        animation: stars 100s linear infinite;
+        opacity: 0.5;
+      }
+      @keyframes stars {
+        0% { background-position: 0 0; }
+        100% { background-position: 0 1000px; }
+      }
+      
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0B0D17; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #36007A; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6F00FF; 
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
